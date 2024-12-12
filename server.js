@@ -39,7 +39,7 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-// Seed database (optional)
+// Seed database 
 if (process.env.RESET_DB) {
   const avocadoSalesData = require("./data/avocado-sales.json");
   const seedDatabase = async () => {
@@ -133,6 +133,6 @@ app.post("/avocadoSalesData", async (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Server running on http://0.0.0.0:${port}`);
 });
